@@ -15,3 +15,5 @@ tags
 cache/htmlpurifier/*/*ser
 lib/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer/*/*ser
 web.config
+
+/vendor/

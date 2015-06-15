@@ -1,0 +1,13 @@
+{
+    "name": "soupmatt/tiny-tiny-rss",
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    },
+    "authors": [
+        {
+            "name": "Matt Campbell",
+            "email": "matt@soupmatt.com"
+        }
+    ],
+    "require": {}
+}
