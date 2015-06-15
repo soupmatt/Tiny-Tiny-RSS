@@ -3,12 +3,13 @@
 	// *** Database configuration (important!) ***
 	// *******************************************
 
+  $dbopts = parse_url(getenv('DATABASE_URL'));
 	define('DB_TYPE', "pgsql"); // or mysql
-	define('DB_HOST', "localhost");
-	define('DB_USER', "fox");
-	define('DB_NAME', "fox");
-	define('DB_PASS', "XXXXXX");
-	define('DB_PORT', ''); // usually 5432 for PostgreSQL, 3306 for MySQL
+	define('DB_HOST', $dbopts["host"]);
+	define('DB_USER', $dbopts["user"]);
+	define('DB_NAME', ltrim($dbopts["path"],'/'));
+	define('DB_PASS', $dbopts["pass"]);
+	define('DB_PORT', $dbopts["port"]); // usually 5432 for PostgreSQL, 3306 for MySQL
 
 	define('MYSQL_CHARSET', 'UTF8');
 	// Connection charset for MySQL. If you have a legacy database and/or experience
@@ -18,7 +19,7 @@
 	// *** Basic settings (important!) ***
 	// ***********************************
 
-	define('SELF_URL_PATH', 'http://example.org/tt-rss/');
+	define('SELF_URL_PATH', getenv('SELF_URL_PATH')); //'https://soupmatt-ttrss.herokuapp.com/tt-rss/'
 	// Full URL of your tt-rss installation. This should be set to the
 	// location of tt-rss directory, e.g. http://example.org/tt-rss/
 	// You need to set this option correctly otherwise several features
@@ -30,13 +31,13 @@
 	// is not used. Requires mcrypt functions.
 	// Warning: changing this key will make your stored feed passwords impossible
 	// to decrypt.
-	
+
 	define('SINGLE_USER_MODE', false);
 	// Operate in single user mode, disables all functionality related to
 	// multiple users and authentication. Enabling this assumes you have
 	// your tt-rss directory protected by other means (e.g. http auth).
 
-	define('SIMPLE_UPDATE_MODE', false);
+	define('SIMPLE_UPDATE_MODE', true);
 	// Enables fallback update mode where tt-rss tries to update feeds in
 	// background while tt-rss is open in your browser. 
 	// If you don't have a lot of feeds and don't want to or can't run 
@@ -89,7 +90,7 @@
 	// *** Feed settings ***
 	// *********************
 
-	define('FORCE_ARTICLE_PURGE', 0);
+	define('FORCE_ARTICLE_PURGE', 1);
 	// When this option is not 0, users ability to control feed purging
 	// intervals is disabled and all articles (which are not starred) 
 	// older than this amount of days are purged.
@@ -141,7 +142,7 @@
 	// Default lifetime of a session (e.g. login) cookie. In seconds, 
 	// 0 means cookie will be deleted when browser closes.
 
-	define('SESSION_CHECK_ADDRESS', 1);
+	define('SESSION_CHECK_ADDRESS', 0);
 	// Check client IP address when validating session:
 	// 0 - disable checking
 	// 1 - check first 3 octets of an address (recommended)
