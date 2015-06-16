@@ -10,6 +10,7 @@
         }
     ],
     "require": {
-      "ext-mbstring": "*"
+      "ext-mbstring": "*",
+      "ext-pcntl": "*"
     }
 }
