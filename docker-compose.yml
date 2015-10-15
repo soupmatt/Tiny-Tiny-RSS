@@ -1,0 +1,39 @@
+web:
+  build: .
+  command: 'bash -c ''vendor/bin/heroku-php-nginx'''
+  working_dir: /app/user
+  environment:
+    PORT: 8080
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+  ports:
+    - '8080:8080'
+  links:
+    - herokuPostgresql
+  volumes:
+    - '.:/app/user'
+worker:
+  build: .
+  command: 'bash -c ''php ./update_daemon2.php'''
+  working_dir: /app/user
+  environment:
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+  links:
+    - herokuPostgresql
+  volumes:
+    - '.:/app/user'
+shell:
+  build: .
+  command: bash
+  working_dir: /app/user
+  environment:
+    PORT: 8080
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+  ports:
+    - '8080:8080'
+  links:
+    - herokuPostgresql
+  volumes:
+    - '.:/app/user'
+herokuPostgresql:
+  image: postgres
+

@@ -1,0 +1,8 @@
+{
+  "name": "TTRSS",
+  "description": "Run TTRSS on heroku!",
+  "image": "heroku/php",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
