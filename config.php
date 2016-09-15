@@ -19,7 +19,7 @@
 	// *** Basic settings (important!) ***
 	// ***********************************
 
-  $app_name = getenv('APP_NAME')
+  $app_name = getenv('APP_NAME');
 	define('SELF_URL_PATH', "https://${app_name}.herokuapp.com/tt-rss/"); //'https://soupmatt-ttrss.herokuapp.com/tt-rss/'
 	// Full URL of your tt-rss installation. This should be set to the
 	// location of tt-rss directory, e.g. http://example.org/tt-rss/
