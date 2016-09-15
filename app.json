@@ -1,8 +1,24 @@
 {
-  "name": "TTRSS",
+  "name": "Tiny-Tiny-RSS",
   "description": "Run TTRSS on heroku!",
   "image": "heroku/php",
+  "scripts": {
+  },
+  "env": {
+    "COMPOSER_GITHUB_OAUTH_TOKEN": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
   "addons": [
+    "scheduler",
     "heroku-postgresql"
   ]
 }
