@@ -4,6 +4,8 @@ web:
   working_dir: /app/user
   environment:
     PORT: 8080
+    APP_NAME: 192
+    APP_HOST_SUFFIX: .168.99.100:8080
     DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
   ports:
     - '8080:8080'
@@ -16,6 +18,8 @@ worker:
   command: 'bash -c ''php ./update_daemon2.php'''
   working_dir: /app/user
   environment:
+    APP_NAME: ttrss
+    APP_HOST_SUFFIX: .dev
     DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
   links:
     - herokuPostgresql
@@ -26,14 +30,14 @@ shell:
   command: bash
   working_dir: /app/user
   environment:
-    PORT: 8080
+    APP_NAME: ttrss
+    APP_HOST_SUFFIX: .dev
     DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
-  ports:
-    - '8080:8080'
   links:
     - herokuPostgresql
   volumes:
     - '.:/app/user'
 herokuPostgresql:
   image: postgres
-
+  ports:
+    - '5432:5432'

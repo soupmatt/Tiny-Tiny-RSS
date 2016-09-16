@@ -2,8 +2,7 @@
   "name": "Tiny-Tiny-RSS",
   "description": "Run TTRSS on heroku!",
   "image": "heroku/php",
-  "scripts": {
-  },
+  "scripts": {},
   "env": {
     "COMPOSER_GITHUB_OAUTH_TOKEN": {
       "required": true

@@ -20,7 +20,8 @@
 	// ***********************************
 
   $app_name = getenv('APP_NAME');
-	define('SELF_URL_PATH', "https://${app_name}.herokuapp.com/tt-rss/"); //'https://soupmatt-ttrss.herokuapp.com/tt-rss/'
+  $app_host_suffix = getenv('APP_HOST_SUFFIX');
+	define('SELF_URL_PATH', "https://${app_name}${app_host_suffix}/tt-rss/"); //'https://soupmatt-ttrss.herokuapp.com/tt-rss/'
 	// Full URL of your tt-rss installation. This should be set to the
 	// location of tt-rss directory, e.g. http://example.org/tt-rss/
 	// You need to set this option correctly otherwise several features
