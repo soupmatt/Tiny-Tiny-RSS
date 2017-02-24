@@ -92,7 +92,7 @@
 	// *** Feed settings ***
 	// *********************
 
-	define('FORCE_ARTICLE_PURGE', 1);
+	define('FORCE_ARTICLE_PURGE', 0);
 	// When this option is not 0, users ability to control feed purging
 	// intervals is disabled and all articles (which are not starred)
 	// older than this amount of days are purged.
@@ -143,13 +143,6 @@
 	define('SESSION_COOKIE_LIFETIME', 86400);
 	// Default lifetime of a session (e.g. login) cookie. In seconds,
 	// 0 means cookie will be deleted when browser closes.
-
-	define('SESSION_CHECK_ADDRESS', 0);
-	// Check client IP address when validating session:
-	// 0 - disable checking
-	// 1 - check first 3 octets of an address (recommended)
-	// 2 - check first 2 octets of an address
-	// 3 - check entire address
 
 	// *********************************
 	// *** Email and digest settings ***
