@@ -140,7 +140,7 @@
 	// *** Cookies and login sessions ***
 	// **********************************
 
-	define('SESSION_COOKIE_LIFETIME', 86400);
+	define('SESSION_COOKIE_LIFETIME', 7*24*60*60);
 	// Default lifetime of a session (e.g. login) cookie. In seconds,
 	// 0 means cookie will be deleted when browser closes.
 
