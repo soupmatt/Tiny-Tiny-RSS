@@ -1,3 +1,5 @@
 FROM heroku/php
 
-RUN usermod -a -G staff nobody
+RUN chmod -R a+rX /app/.heroku/php/* && \
+      usermod -a -G staff nobody && \
+      useradd -m appuser
