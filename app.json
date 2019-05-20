@@ -4,9 +4,6 @@
   "image": "heroku/php",
   "scripts": {},
   "env": {
-    "COMPOSER_GITHUB_OAUTH_TOKEN": {
-      "required": true
-    }
   },
   "formation": {
     "worker": {
